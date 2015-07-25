@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }
 //DB details
-$servername = "http://ec2-54-169-72-135.ap-southeast-1.compute.amazonaws.com/";
+$servername = "localhost";
 $username = "root";
 $password = "code4good";
 $dbname = "Pratham-Team10";
