@@ -32,6 +32,19 @@ if ($result->num_rows > 0){
 	$test2 =  $row['test2'];
 	$final =  $row['final'];
 	$vocal = $row['vocal'];
+}
+
+
+$query = "select * from fees where id='$fees'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0){
+	$row = $result->fetch_assoc();
+	$percent_sponsor = $row['sponsor_percent'];
+	$paid = $row['fees_paid'];
+	$sponsor_paid =  $row['sponsor_paid'];
+	$total_due =  $row['total_due'];
+	$sponsor = $row['sponsor'];
+}
 
 $jobs=array();
 $query = "select * from rating where stu_name='$name'";
@@ -43,7 +56,9 @@ if ($result->num_rows > 0){
 	}
 }
 
-
+//Use the variables above to insert data wherever required.
+//Code to identify new jobs needs to be written wherever the html page is embedded.
+//When a person joins a company, a rating entry is made with the values set to -1.
 
 $conn->close();
 
