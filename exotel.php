@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }
 //DB details
-$servername = "http://ec2-54-169-72-135.ap-southeast-1.compute.amazonaws.com/";
+$servername = "localhost";
 $username = "root";
 $password = "code4good";
 $dbname = "Pratham-Team10";
@@ -22,11 +22,11 @@ $From = $_GET["From"];
 $To = $_GET["To"];
 $Date = $_GET["Date"];
 $Body = $_GET["Body"];
-$arr=explode(" ",$Body);
-$name=$arr[2];
-$phno=$arr[0];
-$course=$arr[1];
-$insert_sql="insert into sms(name,phone_no,course) values("$name","$phno","$course")";
+$arr=explode(",",$Body);
+$name=$arr[1];
+$phno=$arr[2];
+$course=$arr[3];
+$insert_sql="insert into sms(name,phone_no,course) values('$name','$phno','$course')";
 
 
 if ($conn->query($insert_sql) === TRUE) {
