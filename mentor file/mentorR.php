@@ -11,6 +11,9 @@ $p7=$_POST["t7"];
  $sql=mysql_query("insert into Rating(id,stu_name,date,employer,performance,wel_being,satisfaction) values('$p1','$p2','$p3','$p4','$p5','$p6','$p7');")or die("Error detected");
  echo "1 RECORD CREATED";
  mysql_close($con);
-echo"hello";
+
+ $time = time();
+ while(time()<$time+10);
+ //send sms code here
 ?>
  
