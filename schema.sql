@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2015 at 11:12 AM
+-- Generation Time: Jul 25, 2015 at 02:44 PM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -29,8 +29,6 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `Center` (
   `name` varchar(25) DEFAULT NULL,
   `id` varchar(5) NOT NULL,
-  `head` varchar(25) DEFAULT NULL,
-  `registered` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,9 +39,8 @@ CREATE TABLE IF NOT EXISTS `Center` (
 --
 
 CREATE TABLE IF NOT EXISTS `Company` (
-  `name` varchar(25) NOT NULL DEFAULT '',
-  `center` varchar(5) DEFAULT NULL,
-  `skill` varchar(10) DEFAULT NULL,
+  `name` varchar(25) NOT NULL,
+  `skill` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -71,7 +68,8 @@ CREATE TABLE IF NOT EXISTS `Employee` (
   `name` varchar(25) NOT NULL,
   `center` varchar(5) DEFAULT NULL,
   `phone_no` int(10) DEFAULT NULL,
-  PRIMARY KEY (`name`)
+  PRIMARY KEY (`name`),
+  KEY `fkey` (`center`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -98,10 +96,13 @@ CREATE TABLE IF NOT EXISTS `Fees` (
 --
 
 CREATE TABLE IF NOT EXISTS `Performance` (
-  `id` int(10) DEFAULT NULL,
-  `ut1` int(2) DEFAULT NULL,
+  `id` int(10) NOT NULL DEFAULT '0',
+  `course` varchar(5) NOT NULL,
+  `test1` int(2) NOT NULL,
+  `test2` int(2) NOT NULL,
   `final` int(2) DEFAULT NULL,
-  `vocal` int(2) DEFAULT NULL
+  `vocal` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -111,11 +112,14 @@ CREATE TABLE IF NOT EXISTS `Performance` (
 --
 
 CREATE TABLE IF NOT EXISTS `Rating` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL DEFAULT '0',
+  `stu_name` varchar(25) NOT NULL,
   `date` date NOT NULL,
+  `employer` varchar(25) NOT NULL,
   `performance` int(2) DEFAULT NULL,
   `well_being` int(2) DEFAULT NULL,
-  `satisfaction` int(2) DEFAULT NULL
+  `satisfaction` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -128,6 +132,7 @@ CREATE TABLE IF NOT EXISTS `sms` (
   `name` varchar(25) NOT NULL,
   `phone_no` int(11) DEFAULT NULL,
   `course` varchar(5) DEFAULT NULL,
+  `registered` tinyint(1) NOT NULL,
   PRIMARY KEY (`name`),
   KEY `course` (`course`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -139,9 +144,10 @@ CREATE TABLE IF NOT EXISTS `sms` (
 --
 
 CREATE TABLE IF NOT EXISTS `Sponsor` (
-  `name` varchar(25) DEFAULT NULL,
+  `name` varchar(25) NOT NULL DEFAULT '',
   `amount_contributed` int(10) DEFAULT NULL,
-  `phone_no` int(10) DEFAULT NULL
+  `phone_no` int(10) DEFAULT NULL,
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -151,23 +157,28 @@ CREATE TABLE IF NOT EXISTS `Sponsor` (
 --
 
 CREATE TABLE IF NOT EXISTS `Student` (
-  `name` varchar(25) DEFAULT NULL,
+  `name` varchar(25) NOT NULL DEFAULT '',
   `phone_no` int(10) DEFAULT NULL,
-  `course` varchar(5) DEFAULT NULL,
   `DOR` date DEFAULT NULL,
+  `DOC` date NOT NULL,
   `DOB` date DEFAULT NULL,
   `center` int(5) DEFAULT NULL,
   `certified` tinyint(1) DEFAULT NULL,
-  `employer` varchar(25) DEFAULT NULL,
   `mentor` varchar(25) DEFAULT NULL,
   `fees` int(10) DEFAULT NULL,
-  `rating` int(11) DEFAULT NULL,
-  `performance` int(10) DEFAULT NULL
+  `performance` int(10) DEFAULT NULL,
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `Employee`
+--
+ALTER TABLE `Employee`
+  ADD CONSTRAINT `fkey` FOREIGN KEY (`center`) REFERENCES `Center` (`id`);
 
 --
 -- Constraints for table `sms`
