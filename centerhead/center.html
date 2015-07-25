@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>center form</title>
+    <meta name="viewport" content="width=device-width, initial- scale=1.0" />
+
+    <link rel="stylesheet" type="text/css"  href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font- awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="js/jquery- 1.10.2.min.js"></script>
+    <script type="text/javascript"  src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="/center.php" method="post">
+
+<div class="container">
+
+<div class="page-header">
+    <h1>Student form <small>Enter the  required field</small></h1>
+</div>
+
+<!-- Registration form - START -->
+<div class="container">
+    <div class="row">
+        <form role="form">
+            <div class="col-lg-6">
+                <div class="well well-sm"><strong><span  class="glyphicon glyphicon-asterisk"></span>Required  Field</strong></div>
+                <div class="form-group">
+                    <label for="Inputid">Enter  student name</label>
+                    <div class="input-group">
+                        <input type="varchar" class="form-control"  name="t1" id="Inputid" placeholder="Enter student name" required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+		
+		<div class="form-group">
+                    <label for="Inputper">enter phone number</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"  id="Inputper" name="t2" placeholder="enter phone number"  required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+ 
+                <div class="form-group">
+                    <label for="Inputdate">Enter DOR</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control"  id="Inputdate" name="t3" placeholder="Enter  dor" required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+		
+		<div class="form-group">
+                    <label for="Inputdate">Enter DOC</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control"  id="Inputdate" name="t4" placeholder="Enter  doc" required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+		<div class="form-group">
+                    <label for="Inputdate">Enter DOB</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control"  id="Inputdate" name="t5" placeholder="Enter  dob" required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+		<div class="form-group">
+                    <label for="Inputper">center</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"  id="Inputper" name="t6" placeholder="center"  required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+		<div class="form-group">
+                    <label for="Inputper">certified</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"  id="Inputper" name="t7" placeholder="certified"  required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+		
+		<div class="form-group">
+                    <label for="Inputemp">mentor</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control"  id="Inputdate" name="t8" placeholder="mentor" required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Inputper">fees</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"  id="Inputper" name="t9" placeholder="fees"  required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+   
+		<div class="form-group">
+                    <label for="Inputwel">performance</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"  id="Inputwel" name="t10" placeholder="performance"  required>
+                        <span class="input-group-addon"><span  class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+
+
+                
+                <input type="submit" name="submit" id="submit"  value="Submit" class="btn btn-info pull-right">
+            </div>
+        </form>
+        <div class="col-lg-5 col-md-push-1">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    <strong><span class="glyphicon glyphicon- ok"></span> Success! Message sent.</strong>
+                </div>
+                <div class="alert alert-danger">
+                    <span class="glyphicon glyphicon- remove"></span><strong> Error! Please check all page inputs.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Registration form - END -->
+
+</div>
+
+</body>
+</html>
