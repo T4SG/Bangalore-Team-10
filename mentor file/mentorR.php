@@ -14,6 +14,16 @@ $p7=$_POST["t7"];
 
  $time = time();
  while(time()<$time+10);
+
+
+$query = "select mentor,phone_no from student,Employee where name=mentor";
+$result = $conn->query($sql);
+if ($result->num_rows > 0){
+	$row = $result->fetch_assoc();
+	$mentor = $row['mentor'];
+	$phone = $row['phone_no'];
+}
+
  //send sms code here
 ?>
  

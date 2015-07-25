@@ -47,6 +47,7 @@ if ($result->num_rows > 0){
 }
 
 $jobs=array();
+$result = $conn->query($sql);
 $query = "select * from rating where stu_name='$name'";
 if ($result->num_rows > 0){
 	$i=0;
