@@ -1,0 +1,10 @@
+<html>
+<body>
+<img src="map1.jpg" usemap="#map1" border="0">
+<map name="green">
+<area shape="ap" coords="19,44,45,11,87,37,82,76,49,98" href="ap.html">
+<area shape="bg" coords="128,132,241,179" href="banglore.html">
+<area shape="mum" coords="68,211,35" href="Mumbai.html">
+</map>
+</body>
+</html>
